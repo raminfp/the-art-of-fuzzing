@@ -1,0 +1,44 @@
+
+[package]
+name = "humantime-fuzz"
+version = "0.0.0"
+authors = ["Automatically generated"]
+publish = false
+edition = "2018"
+
+[package.metadata]
+cargo-fuzz = true
+
+[dependencies]
+libfuzzer-sys = "0.3"
+
+[dependencies.humantime]
+path = ".."
+
+# Prevent this from interfering with workspaces
+[workspace]
+members = ["."]
+
+[[bin]]
+name = "parse_duration"
+path = "fuzz_targets/parse_duration.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "parse_rfc3339"
+path = "fuzz_targets/parse_rfc3339.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "parse_rfc3339_weak"
+path = "fuzz_targets/parse_rfc3339_weak.rs"
+test = false
+doc = false
+
+[[bin]]
+name = "all"
+path = "fuzz_targets/all.rs"
+test = false
+doc = false

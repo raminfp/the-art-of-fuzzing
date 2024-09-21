@@ -1,0 +1,3 @@
+go-fuzz-build -libfuzzer -o iprange.a
+clang -fsanitize=fuzzer iprange.a -o iprange_fuzzing
+./iprange_fuzzing

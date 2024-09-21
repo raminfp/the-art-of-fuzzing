@@ -1,0 +1,22 @@
+GNUmakefile.llvm:58: [!] llvm_mode needs llvm-config, which was not found
+GNUmakefile.llvm:118: we have trouble finding clang - llvm-config is not helping us
+GNUmakefile.llvm:133: we have trouble finding clang++ - llvm-config is not helping us
+make[1]: llvm-config: No such file or directory
+cc1: note: disable pass tree-cunrolli for functions in the range of [0, 4294967295]
+GNUmakefile.llvm:58: [!] llvm_mode needs llvm-config, which was not found
+GNUmakefile.llvm:118: we have trouble finding clang - llvm-config is not helping us
+GNUmakefile.llvm:133: we have trouble finding clang++ - llvm-config is not helping us
+make[1]: llvm-config: No such file or directory
+make[1]: llvm-config: No such file or directory
+make[1]: llvm-config: No such file or directory
+make[1]: llvm-config: No such file or directory
+make[1]: llvm-config: No such file or directory
+make[1]: *** [GNUmakefile.gcc_plugin:121: test_deps] Error 1
+make: [GNUmakefile:313: gcc_plugin] Error 2 (ignored)
+GNUmakefile.llvm:58: [!] llvm_mode needs llvm-config, which was not found
+GNUmakefile.llvm:118: we have trouble finding clang - llvm-config is not helping us
+GNUmakefile.llvm:133: we have trouble finding clang++ - llvm-config is not helping us
+make[1]: llvm-config: No such file or directory
+make[1]: llvm-config: No such file or directory
+make[1]: *** [GNUmakefile.gcc_plugin:121: test_deps] Error 1
+make: [GNUmakefile:651: install] Error 2 (ignored)

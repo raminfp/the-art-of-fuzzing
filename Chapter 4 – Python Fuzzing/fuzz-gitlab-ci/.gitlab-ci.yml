@@ -1,0 +1,12 @@
+stages:
+  - build
+
+build-code-job:
+  stage: build
+  script:
+    - echo "This is a test!"
+    - pip3 install email_validator
+    - pip3 install validators
+    - pip3 install atheris
+    - python3 fuzz.py
+

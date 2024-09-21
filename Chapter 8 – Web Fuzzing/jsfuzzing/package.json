@@ -1,0 +1,14 @@
+{
+  "name": "jsfuzzing",
+  "version": "1.0.0",
+  "description": "",
+  "main": "fuzz.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "jpeg-js": "^0.4.3"
+  }
+}

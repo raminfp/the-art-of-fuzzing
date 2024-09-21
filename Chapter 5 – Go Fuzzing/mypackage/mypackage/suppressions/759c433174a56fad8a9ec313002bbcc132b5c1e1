@@ -1,0 +1,5 @@
+panic: runtime error: index out of range [3] with length 3
+mypackage.GetNext
+mypackage.Fuzz
+go-fuzz-dep.Main
+main.main

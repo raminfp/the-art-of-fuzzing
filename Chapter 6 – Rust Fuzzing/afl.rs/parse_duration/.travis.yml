@@ -1,0 +1,44 @@
+language: rust
+
+rust:
+  - stable # use this for builds on other OSes
+  - 1.28.0
+  - beta
+  - nightly
+
+dist: bionic
+
+env: TARGET=i686-unknown-linux-gnu
+
+matrix:
+  allow_failures:
+    - rust: nightly
+  fast_finish: true
+  include:
+    # All Tier 1 supported platforms
+    - env: TARGET=i686-apple-darwin
+      os: osx
+    - env: TARGET=x86_64-apple-darwin
+      os: osx
+
+    - env: TARGET=i686-pc-windows-gnu
+      os: windows
+    - env: TARGET=i686-pc-windows-msvc
+      os: windows
+    - env: TARGET=x86_64-pc-windows-gnu
+      os: windows
+    - env: TARGET=x86_64-pc-windows-msvc
+      os: windows
+
+    - env: TARGET=i686-unknown-linux-gnu
+      dist: xenial
+# This gets run outside the matrix
+#   - env: TARGET=i686-unknown-linux-gnu
+#     dist: bionic
+    - env: TARGET=x86_64-unknown-linux-gnu
+      dist: xenial
+    - env: TARGET=x86_64-unknown-linux-gnu
+      dist: bionic
+
+# This sometimes causes crashes - not sure why
+# cache: cargo

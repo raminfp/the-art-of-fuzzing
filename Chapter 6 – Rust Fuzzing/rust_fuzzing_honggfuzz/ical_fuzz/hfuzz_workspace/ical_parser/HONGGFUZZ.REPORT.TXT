@@ -1,0 +1,50 @@
+=====================================================================
+TIME: 2021-04-19.16:59:11
+=====================================================================
+FUZZER ARGS:
+ mutationsPerRun : 5
+ externalCmd     : NULL
+ fuzzStdin       : FALSE
+ timeout         : 1 (sec)
+ ignoreAddr      : (nil)
+ ASLimit         : 0 (MiB)
+ RSSLimit        : 0 (MiB)
+ DATALimit       : 0 (MiB)
+ wordlistFile    : NULL
+ dynFileMethod   : 
+ fuzzTarget      : hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser 
+CRASH:
+DESCRIPTION: 
+ORIG_FNAME: e096ff9ada077bb64f80ef334a6b47df.0000000c.honggfuzz.cov
+FUZZ_FNAME: hfuzz_workspace/ical_parser/SIGABRT.PC.7ffff7daf8cb.STACK.d1a0375e0.CODE.-6.ADDR.0.INSTR.mov____0x108(%rsp),%rax.fuzz
+PID: 2927899
+SIGNAL: SIGABRT (6)
+PC: 0x7ffff7daf8cb
+FAULT ADDRESS: 0x0
+INSTRUCTION: mov____0x108(%rsp),%rax
+STACK HASH: 0000000d1a0375e0
+STACK:
+ <0x00007ffff7d94864> [func:UNKNOWN file: line:0 module:/usr/lib/x86_64-linux-gnu/libc-2.32.so]
+ <0x0000555555599917> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x0000555555594796> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x000055555557d7e7> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x00005555555978e6> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x0000555555597407> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x000055555559582c> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x0000555555597369> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x00005555555ab871> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x00005555555ab693> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x0000555555562a84> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x0000555555566103> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x000055555556b824> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x000055555556c50f> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x0000555555561fc8> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x000055555556563a> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x0000555555560fd5> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x000055555556542e> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x00005555555653d8> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x0000555555597ce7> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x00005555555653ab> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+ <0x00007ffff7d96cb2> [func:UNKNOWN file: line:0 module:/usr/lib/x86_64-linux-gnu/libc-2.32.so]
+ <0x000055555555c79e> [func:UNKNOWN file: line:0 module:/home/scop/Documents/projects/rust_fuzzing_honggfuzz/ical_fuzz/hfuzz_target/x86_64-unknown-linux-gnu/release/ical_parser]
+=====================================================================

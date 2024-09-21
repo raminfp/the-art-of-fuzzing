@@ -1,0 +1,117 @@
+Compiling DEBUG version of binaries
+rm -f afl-fuzz afl-showmap afl-tmin afl-gotcpu afl-analyze libradamsa.so afl-fuzz-document afl-as as afl-g++ afl-clang afl-clang++ *.o src/*.o *~ a.out core core.[1-9][0-9]* *.stackdump .test .test1 .test2 test-instr .test-instr0 .test-instr1 afl-qemu-trace afl-gcc-fast afl-gcc-pass.so afl-g++-fast ld *.so *.8 test/unittests/*.o test/unittests/unit_maybe_alloc test/unittests/preallocable .afl-* afl-gcc afl-g++ afl-clang afl-clang++ test/unittests/unit_hash test/unittests/unit_rand
+make -f GNUmakefile.llvm clean
+make[1]: Entering directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus'
+[!] llvm_mode detected an old version of llvm, upgrade to at least 9 or preferable 11!
+[+] llvm_mode detected llvm < 11, afl-lto LTO will not be build.
+rm -f *.o *.so *~ a.out core core.[1-9][0-9]* .test2 test-instr .test-instr0 .test-instr1 *.dwo
+rm -f ./afl-cc ./afl-compiler-rt.o ./afl-compiler-rt-32.o ./afl-compiler-rt-64.o  ./afl-llvm-pass.so ./SanitizerCoveragePCGUARD.so ./split-compares-pass.so ./split-switches-pass.so ./cmplog-routines-pass.so ./cmplog-instructions-pass.so ./afl-llvm-dict2file.so ./compare-transform-pass.so ./libLLVMInsTrim.so ./afl-ld-lto ./afl-llvm-lto-instrumentlist.so ./afl-llvm-lto-instrumentation.so ./SanitizerCoverageLTO.so afl-common.o ./afl-c++ ./afl-lto ./afl-lto++ ./afl-clang-lto* ./afl-clang-fast* ./afl-clang*.8 ./ld ./afl-ld ./afl-llvm-rt*.o instrumentation/*.o
+make[1]: Leaving directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus'
+make -f GNUmakefile.gcc_plugin clean
+make[1]: Entering directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus'
+rm -f *.o *.so *~ a.out core core.[1-9][0-9]* test-instr .test-instr0 .test-instr1 .test2
+rm -f ./afl-gcc-pass.so afl-common.o ./afl-g++-fast ./afl-g*-fast.8 instrumentation/*.o
+make[1]: Leaving directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus'
+make -C utils/libdislocator clean
+make[1]: Entering directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus/utils/libdislocator'
+rm -f *.o *.so *~ a.out core core.[1-9][0-9]*
+rm -f ../../libdislocator.so
+make[1]: Leaving directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus/utils/libdislocator'
+make -C utils/libtokencap clean
+make[1]: Entering directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus/utils/libtokencap'
+rm -f *.o *.so *~ a.out core core.[1-9][0-9]*
+rm -fv ../../libtokencap.so
+make[1]: Leaving directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus/utils/libtokencap'
+make -C utils/afl_network_proxy clean
+make[1]: Entering directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus/utils/afl_network_proxy'
+rm -f afl-network-client afl-network-server *~ core
+make[1]: Leaving directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus/utils/afl_network_proxy'
+make -C utils/socket_fuzzing clean
+make[1]: Entering directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus/utils/socket_fuzzing'
+rm -f socketfuzz32.so socketfuzz64.so
+make[1]: Leaving directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus/utils/socket_fuzzing'
+make -C utils/argv_fuzzing clean
+make[1]: Entering directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus/utils/argv_fuzzing'
+rm -f argvfuzz32.so argvfuzz64.so
+make[1]: Leaving directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus/utils/argv_fuzzing'
+make -C qemu_mode/unsigaction clean
+make[1]: Entering directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus/qemu_mode/unsigaction'
+rm -f unsigaction.so
+make[1]: Leaving directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus/qemu_mode/unsigaction'
+make -C qemu_mode/libcompcov clean
+make[1]: Entering directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus/qemu_mode/libcompcov'
+rm -f *.o *.so *~ a.out core core.[1-9][0-9]*
+rm -f ../../libcompcov.so compcovtest
+make[1]: Leaving directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus/qemu_mode/libcompcov'
+make -C qemu_mode/libqasan clean
+make[1]: Entering directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus/qemu_mode/libqasan'
+rm -f *.o *.so *~ a.out core core.[1-9][0-9]*
+rm -f ../../libqasan.so
+make[1]: Leaving directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus/qemu_mode/libqasan'
+rm -rf qemu_mode/qemuafl
+rm -rf unicorn_mode/unicornafl
+[!] Note: skipping x86 compilation checks (AFL_NO_X86 set).
+[+] shmat seems to be working.
+[+] Python 3.9.2 support seems to be working.
+[+] Everything seems to be working, ready to compile.
+cc -ggdb3 -O0 -Wall -Wextra -Werror -g -Wno-pointer-sign -Wno-variadic-macros -Wall -Wextra -Wpointer-arith -I include/ -DAFL_PATH=\"/lib/afl\" -DBIN_PATH=\"/bin\" -DDOC_PATH=\"/share/doc/afl\" -flto -c src/afl-common.c -o src/afl-common.o
+cc -ggdb3 -O0 -Wall -Wextra -Werror -g -Wno-pointer-sign -Wno-variadic-macros -Wall -Wextra -Wpointer-arith -I include/ -DAFL_PATH=\"/lib/afl\" -DBIN_PATH=\"/bin\" -DDOC_PATH=\"/share/doc/afl\" -flto -c src/afl-sharedmem.c -o src/afl-sharedmem.o
+cc -ggdb3 -O0 -Wall -Wextra -Werror -g -Wno-pointer-sign -Wno-variadic-macros -Wall -Wextra -Wpointer-arith -I include/ -DAFL_PATH=\"/lib/afl\" -DBIN_PATH=\"/bin\" -DDOC_PATH=\"/share/doc/afl\" -flto -c src/afl-forkserver.c -o src/afl-forkserver.o
+cc -ggdb3 -O0 -Wall -Wextra -Werror -g -Wno-pointer-sign -Wno-variadic-macros -Wall -Wextra -Wpointer-arith -I include/ -DAFL_PATH=\"/lib/afl\" -DBIN_PATH=\"/bin\" -DDOC_PATH=\"/share/doc/afl\" -Iinclude -fno-move-loop-invariants -fdisable-tree-cunrolli -O3 -fno-unroll-loops -c src/afl-performance.c -o src/afl-performance.o
+cc -ggdb3 -O0 -Wall -Wextra -Werror -g -Wno-pointer-sign -Wno-variadic-macros -Wall -Wextra -Wpointer-arith -I include/ -DAFL_PATH=\"/lib/afl\" -DBIN_PATH=\"/bin\" -DDOC_PATH=\"/share/doc/afl\"  -flto src/afl-fuzz-bitmap.c src/afl-fuzz.c src/afl-fuzz-cmplog.c src/afl-fuzz-extras.c src/afl-fuzz-init.c src/afl-fuzz-mutators.c src/afl-fuzz-one.c src/afl-fuzz-python.c src/afl-fuzz-queue.c src/afl-fuzz-redqueen.c src/afl-fuzz-run.c src/afl-fuzz-state.c src/afl-fuzz-stats.c src/afl-fuzz-statsd.c src/afl-common.o src/afl-sharedmem.o src/afl-forkserver.o src/afl-performance.o -o afl-fuzz -DUSE_PYTHON -I/usr/include/python3.9 -I/usr/include/python3.9 -ldl -lrt -lm -lpython3.9 -lcrypt -lpthread -ldl  -lutil -lm -lm  -L/usr/lib/python3.9/config-3.9-x86_64-linux-gnu -L/usr/lib -lpython3.9 -lcrypt -lpthread -ldl  -lutil -lm -lm  -DPYTHON_VERSION="\"Python 3.9.2\"" -ldl -lrt -lm -lm
+cc -ggdb3 -O0 -Wall -Wextra -Werror -g -Wno-pointer-sign -Wno-variadic-macros -Wall -Wextra -Wpointer-arith -I include/ -DAFL_PATH=\"/lib/afl\" -DBIN_PATH=\"/bin\" -DDOC_PATH=\"/share/doc/afl\"  -flto src/afl-showmap.c src/afl-common.o src/afl-sharedmem.o src/afl-forkserver.o src/afl-performance.o -o afl-showmap -ldl -lrt -lm
+cc -ggdb3 -O0 -Wall -Wextra -Werror -g -Wno-pointer-sign -Wno-variadic-macros -Wall -Wextra -Wpointer-arith -I include/ -DAFL_PATH=\"/lib/afl\" -DBIN_PATH=\"/bin\" -DDOC_PATH=\"/share/doc/afl\"  -flto src/afl-tmin.c src/afl-common.o src/afl-sharedmem.o src/afl-forkserver.o src/afl-performance.o -o afl-tmin -ldl -lrt -lm
+cc -ggdb3 -O0 -Wall -Wextra -Werror -g -Wno-pointer-sign -Wno-variadic-macros -Wall -Wextra -Wpointer-arith -I include/ -DAFL_PATH=\"/lib/afl\" -DBIN_PATH=\"/bin\" -DDOC_PATH=\"/share/doc/afl\"  -flto src/afl-gotcpu.c src/afl-common.o -o afl-gotcpu -ldl -lrt -lm
+cc -ggdb3 -O0 -Wall -Wextra -Werror -g -Wno-pointer-sign -Wno-variadic-macros -Wall -Wextra -Wpointer-arith -I include/ -DAFL_PATH=\"/lib/afl\" -DBIN_PATH=\"/bin\" -DDOC_PATH=\"/share/doc/afl\"  -flto src/afl-analyze.c src/afl-common.o src/afl-sharedmem.o src/afl-performance.o -o afl-analyze -ldl -lrt -lm
+cc -ggdb3 -O0 -Wall -Wextra -Werror -g -Wno-pointer-sign -Wno-variadic-macros -Wall -Wextra -Wpointer-arith -I include/ -DAFL_PATH=\"/lib/afl\" -DBIN_PATH=\"/bin\" -DDOC_PATH=\"/share/doc/afl\" src/afl-as.c -o afl-as -ldl -lrt -lm
+make -j -f GNUmakefile.llvm
+make[1]: Entering directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus'
+[!] llvm_mode detected an old version of llvm, upgrade to at least 9 or preferable 11!
+[+] llvm_mode detected llvm < 11, afl-lto LTO will not be build.
+[+] shmat seems to be working.
+clang -O3 -funroll-loops -fPIC -D_FORTIFY_SOURCE=2 -Wall -g -Wno-cast-qual -Wno-variadic-macros -Wno-pointer-sign -I ./include/ -I ./instrumentation/ -DAFL_PATH=\"/lib/afl\" -DBIN_PATH=\"/bin\" -DLLVM_BINDIR=\"\" -DVERSION=\"++3.01a\" -DLLVM_LIBDIR=\"\" -DLLVM_VERSION=\"\" -Wno-deprecated -DAFL_CLANG_FLTO=\"-flto=full\" -DAFL_REAL_LD=\"\" -DAFL_CLANG_LDPATH=\"\" -DAFL_CLANG_FUSELD=\"\" -DCLANG_BIN=\"clang\" -DCLANGPP_BIN=\"clang++\" -DUSE_BINDIR=0 -Wno-unused-function -fdebug-prefix-map="/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus=llvm_mode"  -c src/afl-common.c -o instrumentation/afl-common.o 
+clang -I -I./../include -O3 -funroll-loops -fPIC -D_FORTIFY_SOURCE=2 -Wall -g -Wno-cast-qual -Wno-variadic-macros -Wno-pointer-sign -I ./include/ -I ./instrumentation/ -DAFL_PATH=\"/lib/afl\" -DBIN_PATH=\"/bin\" -DLLVM_BINDIR=\"\" -DVERSION=\"++3.01a\" -DLLVM_LIBDIR=\"\" -DLLVM_VERSION=\"\" -Wno-deprecated -DAFL_CLANG_FLTO=\"-flto=full\" -DAFL_REAL_LD=\"\" -DAFL_CLANG_LDPATH=\"\" -DAFL_CLANG_FUSELD=\"\" -DCLANG_BIN=\"clang\" -DCLANGPP_BIN=\"clang++\" -DUSE_BINDIR=0 -Wno-unused-function -fdebug-prefix-map="/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus=llvm_mode"  src/afl-cc.c instrumentation/afl-common.o -o afl-cc -DLLVM_MINOR= -DLLVM_MAJOR=  -DCFLAGS_OPT=\"\" -lm
+clang -I -I./../include -Wall -g -Wno-cast-qual -Wno-variadic-macros -Wno-pointer-sign -I ./include/ -I ./instrumentation/ -DAFL_PATH=\"/lib/afl\" -DBIN_PATH=\"/bin\" -DLLVM_BINDIR=\"\" -DVERSION=\"++3.01a\" -DLLVM_LIBDIR=\"\" -DLLVM_VERSION=\"\" -Wno-deprecated -DAFL_CLANG_FLTO=\"-flto=full\" -DAFL_REAL_LD=\"\" -DAFL_CLANG_LDPATH=\"\" -DAFL_CLANG_FUSELD=\"\" -DCLANG_BIN=\"clang\" -DCLANGPP_BIN=\"clang++\" -DUSE_BINDIR=0 -Wno-unused-function -fdebug-prefix-map="/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus=llvm_mode"  -O3 -Wno-unused-result -fPIC -c instrumentation/afl-compiler-rt.o.c -o afl-compiler-rt.o
+[*] Building 32-bit variant of the runtime (-m32)... failed (that's fine)
+[*] Building 64-bit variant of the runtime (-m64)... success!
+make[1]: Leaving directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus'
+make -f GNUmakefile.gcc_plugin
+make[1]: Entering directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus'
+[+] shmat seems to be working.
+[*] Checking for working 'cc'...
+[*] Checking for gcc plugin development header files...
+[-] Oops, can't find gcc header files. Be sure to install 'gcc-X-plugin-dev'.
+make[1]: Leaving directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus'
+[!] Note: skipping build tests (you may need to use LLVM or QEMU mode).
+[+] Main compiler 'afl-cc' successfully built!
+[-] LLVM mode for 'afl-cc'  failed to build, likely you either don't have llvm installed, or you need to set LLVM_CONFIG, to point to e.g. llvm-config-11. See instrumentation/README.llvm.md how to do this. Highly recommended!
+[-] LLVM LTO mode for 'afl-cc'  failed to build, this would need LLVM 11+, see instrumentation/README.lto.md how to build it
+[-] gcc_plugin for 'afl-cc'  failed to build, unless you really need it that is fine - or read instrumentation/README.gcc_plugin.md how to build it
+[+] All done! Be sure to review the README.md - it's pretty short and useful.
+install -m 755 afl-fuzz afl-showmap afl-tmin afl-gotcpu afl-analyze afl-plot afl-cmin afl-cmin.bash afl-whatsup afl-system-config ${DESTDIR}/bin
+make -f GNUmakefile.llvm install
+make[1]: Entering directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus'
+[!] llvm_mode detected an old version of llvm, upgrade to at least 9 or preferable 11!
+[+] llvm_mode detected llvm < 11, afl-lto LTO will not be build.
+[+] shmat seems to be working.
+[*] Building 32-bit variant of the runtime (-m32)... failed (that's fine)
+set -e; install -m 644 ./dynamic_list.txt ${DESTDIR}/lib/afl
+install -m 644 instrumentation/README.*.md ${DESTDIR}/share/doc/afl/
+make[1]: Leaving directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus'
+make -f GNUmakefile.gcc_plugin install
+make[1]: Entering directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus'
+[+] shmat seems to be working.
+[*] Checking for working 'cc'...
+[*] Checking for gcc plugin development header files...
+[-] Oops, can't find gcc header files. Be sure to install 'gcc-X-plugin-dev'.
+make[1]: Leaving directory '/root/.cargo/registry/src/github.com-1ecc6299db9ec823/afl-0.10.1/AFLplusplus'
+ln -sf afl-cc ${DESTDIR}/bin/afl-gcc
+ln -sf afl-cc ${DESTDIR}/bin/afl-g++
+ln -sf afl-cc ${DESTDIR}/bin/afl-clang
+ln -sf afl-cc ${DESTDIR}/bin/afl-clang++
+install -m0644 *.8 /root/.local/share/afl.rs/rustc-1.53.0-53cb7b0/afl.rs-0.10.1/afl/man/man8
+install -m 755 afl-as ${DESTDIR}/lib/afl
+ln -sf afl-as ${DESTDIR}/lib/afl/as
+install -m 644 docs/*.md ${DESTDIR}/share/doc/afl
+cp -r testcases/ ${DESTDIR}/share/afl
+cp -r dictionaries/ ${DESTDIR}/share/afl

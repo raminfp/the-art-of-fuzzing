@@ -1,0 +1,12 @@
+panic: runtime error: index out of range [3] with length 3
+
+goroutine 1 [running]:
+mypackage.GetNext(0xc00010ce68, 0x3, 0x3, 0xc00010ce48, 0x8, 0x0, 0xc00010ce70)
+	/root/go/src/mypackage/mypackage.go:7 +0x170
+mypackage.Fuzz(0x7f60e1860000, 0x8, 0x8, 0x3)
+	/root/go/src/mypackage/fuzz.go:5 +0xe5
+go-fuzz-dep.Main(0xc00010cf70, 0x1, 0x1)
+	go-fuzz-dep/main.go:36 +0x1b8
+main.main()
+	mypackage/go.fuzz.main/main.go:15 +0x52
+exit status 2

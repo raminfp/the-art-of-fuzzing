@@ -1,0 +1,11 @@
+stages:
+  - build
+
+build-code-job:
+  stage: build
+  script:
+    - echo "this is a golang fuzzing CI/CD test."
+    - /home/gitlab-runner/go/bin/go-fuzz-build
+    - /home/gitlab-runner/go/bin/go-fuzz
+    
+

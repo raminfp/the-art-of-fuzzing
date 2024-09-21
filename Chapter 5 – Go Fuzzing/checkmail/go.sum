@@ -1,0 +1,2 @@
+github.com/dvyukov/go-fuzz v0.0.0-20210602112143-b1f3d6f4ef4e h1:qTP1telKJHlToHlwPQNmVg4yfMDMHe4Z3SYmzkrvA2M=
+github.com/dvyukov/go-fuzz v0.0.0-20210602112143-b1f3d6f4ef4e/go.mod h1:11Gm+ccJnvAhCNLlf5+cS9KjtbaD5I5zaZpFMsTHWTw=

@@ -1,0 +1,132 @@
+Traffic Generator and Traffic Sink
+===================================
+
+The traffic_generator can be used to generate periodic UDP or TCP traffic (over IPv6 by default).  The program allows control of the IPv6 Traffic Class and Flow Label.  It also allows detailed manipulation of the rate and size at which the data is sent.  Options are similar to those found in ping and ping6.
+
+usage: traffic_generator.py [-h] [-V] [-D] [-v] [-q] [-u | -t] [-4] [-T] [-b]
+                            [-c COUNT] [-f HZ] [-F LABEL] [-i INTERVAL]
+                            [-A N [N ...]] [-l PRELOAD] [-o SEC] [-p PATTERN]
+                            [-P SEC] [-Q TOS] [-s BYTES] [-S N [N ...] | -O N
+                            [N ...]]
+                            host port
+
+This program will generate IPv6 UDP or TCP traffic of a certain size to a set
+destination and allow control of the IPv6 Traffic Class and Rate at which the
+data is sent. IPv4 data can also be generated with the -4 option.
+
+positional arguments:
+  host                  The destination IPv6 host or address.
+  port                  The destination port number.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -V, --version         show program's version number and exit
+  -D, --debug           Extra debugging information
+  -v, --verbose         Increase verboseness of messages
+  -q, --quiet           Disable any extra dialog
+  -u, --udp             Communicate over UDP (Default)
+  -t, --tcp             Communicate over TCP instead of UDP
+  -4, --ipv4            Send IPv4 traffic instead of IPv6
+  -T, --timestamp       Embed a timestamp in each message
+  -b, --blind           Send 'Blindly'. For UDP, ignore ICMP port unreachable
+                        messages. Caution! This may cause unwanted return
+                        traffic.
+  -c COUNT, --count COUNT
+                        Stop after sending COUNT packets.
+  -f HZ, --frequency HZ
+                        Send packets at HZ frequency. Default: 1.0 Hz
+  -F LABEL, --flowlabel LABEL
+                        Allocate and set the 20 bit flow label. If value is
+                        zero, kernel allocates random flow label.
+  -i INTERVAL, --interval INTERVAL
+                        Wait INTERVAL seconds between sending each packet.
+                        Fractional values are allowed. Default: 1.0 sec
+  -A N [N ...], --adjust N [N ...]
+                        Adjust the size of a transmission in the given
+                        slot(s). Multiple adjustments can be made. Format
+                        (Size [Slot1 .. SlotN])
+  -l PRELOAD, --preload PRELOAD
+                        Send PRELOAD packets immediately when starting
+  -o SEC, --offset SEC  Offset transmissions by some fixed delay in seconds
+                        (can be fractional). Offset is from the start of
+                        nearest second. Thus, an offset of zero can be used to
+                        start transmissions on a second boundary.
+  -p PATTERN, --pattern PATTERN
+                        You may specify a PATTERN of bytes to fill out the
+                        packet. The pattern will be repeated.
+  -P SEC, --period SEC  The basis of time for transmissions in seconds. Thus,
+                        an interval of 2 and period of 6 would equate to 3
+                        transmissions over 6 seconds. Default: 1.0 sec
+  -Q TOS, --qos TOS, --dscp TOS
+                        Set the DiffServ *Experimental* Code Point in the
+                        packets. Thus, values from 0-15 will produce a traffic
+                        class field of 0x0c to 0xfc (to comply with ECN).
+                        Alternatively, specify an explicit traffic class field
+                        (including ECN bits) by entering values larger than
+                        0xf. Common code point names (ie: CS1, AF11) can also
+                        be used. TOS can be entered in decimal or hex (hex
+                        prefixed with 0x).
+  -s BYTES, --size BYTES
+                        Specifies the number of data bytes to be sent per
+                        packet. Default: 56
+  -S N [N ...], --skip N [N ...]
+                        Skip the Nth transmission in every period. Multiple
+                        values can be specified. For example, '-S 1 3' will
+                        skip the first and third transmission.
+  -O N [N ...], --only N [N ...]
+                        Send only the Nth transmission in every period.
+                        Multiple values can be specified. For example, '-O 1
+                        3' will only send the first and third transmission.
+
+The traffic_sink can be run to collect the packets created by traffic_generator and produce some stats.  The output varies depending on if timestamps are enabled on the generator.
+
+The basic output is:
+
+<Local timestamp of reception> <traffic class> <size in bytes> <Rx> <sequence #> [<remote timestamp of generation> <local reception time - remote generation time>]
+
+usage: traffic_sink.py [-h] [-V] [-D] [-v] [-q] [-u | -t] [-4] [-p] [-s BYTES]
+                       [host] port
+
+This program will listen for IPv6 UDP and TCP traffic on a specified port and
+log reception time and the IPv6 Traffic Class.
+
+positional arguments:
+  host                  The IPv6 host or address to listen on.
+  port                  The port number to listen on.
+
+optional arguments:
+  -h, --help            show this help message and exit
+  -V, --version         show program's version number and exit
+  -D, --debug           Extra debugging information
+  -v, --verbose         Increase verboseness of messages
+  -q, --quiet           Disable any extra dialog
+  -u, --udp             Listen on UDP Only
+  -t, --tcp             Listen on TCP Only
+  -4, --ipv4            Receive IPv4 traffic instead of IPv6
+  -p, --payload         Log the payload sent
+  -s BYTES, --size BYTES
+                        Specifies the capture length in bytes. Default: 9200
+
+
+EXAMPLES
+==========
+
+python traffic_generator.py -c 3 ::1 2222
+
+Generate 3, 56 byte packets, at a rate of one packet per second.
+
+python traffic_generator.py -c 3 -o 0 ::1 2222
+
+Generate 3 packets, aligned on second boundaries
+
+python traffic_generator.py -c 8 -s 50 -f 4 -A 100 1 3 -- ::1 2222
+
+Generate 8 packets at a rate of 4 packets per second, alternating between 100 and 50 byte payloads
+
+python traffic_generator.py -c 3 -T -Q 7 -F 0 ::1 2222
+
+Generate 3 packets with timestamps and the traffic class set to 0x7c and flow labels enabled.
+
+python traffic_generator.py -4 -u -T -Q CS5 localhost 2222
+
+Generate continuous 56 byte UDP packets with timestamps and with DiffServ code point set to CS5

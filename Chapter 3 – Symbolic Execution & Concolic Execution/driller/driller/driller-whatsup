@@ -1,0 +1,86 @@
+#!/usr/bin/env python
+
+import os
+import sys
+import termcolor
+
+def collect_stats(d):
+    '''
+    collect stats for a single driller work dir
+
+    :param d: path to the work dir
+    '''
+
+    crashes_found  = 0
+    drilled_inputs = 0
+
+    sync_dir = os.path.join(d, "sync")
+    if os.path.isdir(sync_dir):
+        for fuzzer in os.listdir(sync_dir):
+            if fuzzer == "driller":
+                d_queue = os.path.join(sync_dir, fuzzer, "queue")
+                drilled_inputs = len(os.listdir(d_queue))
+            else:
+                crash_dir = os.path.join(sync_dir, fuzzer, "crashes")
+                crashes_found += len(os.listdir(crash_dir))
+
+    return {'driller': drilled_inputs, 'crashes': crashes_found}
+
+def main(argv):
+
+    if (len(argv) < 2):
+        print "usage: %s <driller_dir>" % argv[0]
+        return 1
+
+    driller_dir = argv[1]
+
+    if not os.path.isdir(driller_dir):
+        print "driller_dir must be a directory"
+        return 1
+
+    stats = {}
+    for job in os.listdir(driller_dir):
+        stats[job] = collect_stats(os.path.join(driller_dir, job))
+
+    pwned_list = '/home/angr/store/output/pwned'
+    old_pwned_here = False
+    if os.path.exists(pwned_list):
+        old_pwned_here = True
+        old_pwned = set(open(pwned_list).read().split('\n')[:-1])
+
+    drilled_bins = crashed_bins = new_bins = 0
+    for job in stats:
+        print "%s... " % job,
+        new_bin = False
+        if old_pwned_here and job[:-3] not in old_pwned:
+            new_bin = True
+        if stats[job]['crashes'] > 0:
+            crash_word = termcolor.colored("crash", "red", attrs=["bold"])
+            crashed_bins += 1
+            if new_bin:
+                new_bins +=  1
+        else:
+            crash_word = " " * len("crash")
+
+        if stats[job]['driller'] > 0:
+            drill_word = termcolor.colored("driller", "green", attrs=["bold"])
+            drilled_bins += 1
+        else:
+            drill_word = " " * len("driller")
+
+        print "%s %s %s" % (crash_word, drill_word, "*" if new_bin else " ")
+         
+    
+
+    crash_count = termcolor.colored("%d" % crashed_bins, "red", attrs=["bold"])
+    drill_count = termcolor.colored("%d" % drilled_bins, "green", attrs=["bold"])
+    new_count   = termcolor.colored("%d" % new_bins, "yellow", attrs=["bold"])
+
+    print 
+    print "total...   %d" % len(stats)
+    print "crashed... %s" % crash_count
+    print "drilled... %s" % drill_count
+    print "new...     %s" % new_count
+
+if __name__ == "__main__":
+    sys.exit(main(sys.argv))

@@ -1,0 +1,18 @@
+panic: runtime error: index out of range [3] with length 0
+
+goroutine 1 [running]:
+encoding/binary.bigEndian.Uint32(...)
+	/usr/local/go/src/encoding/binary/binary.go:112
+github.com/malfunkt/iprange.(*ipParserImpl).Parse(0xc00011ec00, 0x51b158, 0xc000066140, 0x0)
+	/root/go/pkg/mod/github.com/malfunkt/iprange@v0.9.0/y.go:504 +0x2995
+github.com/malfunkt/iprange.ipParse(...)
+	/root/go/pkg/mod/github.com/malfunkt/iprange@v0.9.0/y.go:306
+github.com/malfunkt/iprange.ParseList(0xc000045e80, 0xa, 0xa, 0xc000045e80, 0xa, 0x60615594, 0xc000045ea0)
+	/root/go/pkg/mod/github.com/malfunkt/iprange@v0.9.0/y.go:61 +0x11e
+github.com/malfunkt/iprange.Fuzz(0x7eff68aa9000, 0xa, 0xa, 0x3)
+	/root/go/pkg/mod/github.com/malfunkt/iprange@v0.9.0/Fuzz.go:4 +0x73
+go-fuzz-dep.Main(0xc000045f70, 0x1, 0x1)
+	go-fuzz-dep/main.go:36 +0x1b8
+main.main()
+	github.com/malfunkt/iprange/go.fuzz.main/main.go:15 +0x52
+exit status 2
