@@ -1,11 +1,11 @@
-# Source Code Fuzzing Course 
+# Table of Contents
 
+- **Chapter 1** – Fuzzing Introduction  
+- **Chapter 2** – Static & Dynamic Fuzzing  
+- **Chapter 3** – Symbolic & Concolic Execution  
+- **Chapter 4** – Python Fuzzing  
+- **Chapter 5** – Go Fuzzing  
+- **Chapter 6** – Rust Fuzzing  
+- **Chapter 7** – Java Fuzzing  
+- **Chapter 8** – Web Fuzzing  
 
-### Intro Fuzzing
-### Static/Dynamic Fuzzing
-### Symbolic Execution & Concolic Execution
-### Python Fuzzing
-### Go Fuzzing
-### Rust Fuzzing
-### Java Fuzzing
-### Web Fuzzing
